@@ -1,0 +1,31 @@
+Running on Windows
+  https://nodered.org/docs/getting-started/windows
+
+
+Running on Windows
+This page gives specific instructions on setting up Node-RED in a Microsoft Windows environment. The instructions are specific to Windows 10 but should also work for Windows 7 and Windows Server from 2008R2. It is not advisable to use versions prior to Windows 7 or Windows Server 2008R2 due to lack of current support.
+
+Note : Some of the following instructions mention the "command prompt". Where this is used, it refers to either the Windows cmd or PowerShell terminal shells. It is recommended to use PowerShell on all newer versions of Windows as this gives you access to commands and folder names that are closer to those of Linux/Mac.
+Quick Start
+1. Install Node.js
+Download the latest 10.x LTS version of Node.js from the official Node.js home page. It will offer you the best version for your system.
+
+Run the downloaded MSI file. Installing Node.js requires local administrator rights; if you are not a local administrator, you will be prompted for an administrator password on install. Accept the defaults when installing. After installation completes, close any open command prompts and re-open to ensure new environment variables are picked up.
+
+Once installed, open a command prompt and run the following command to ensure Node.js and npm are installed correctly.
+
+Using Powershell: node --version; npm --version
+
+Using cmd: node --version && npm --version
+
+You should receive back output that looks similar to:
+
+v10.16.3
+6.11.3
+2. Install Node-RED
+Installing Node-RED as a global module adds the command node-red to your system path. Execute the following at the command prompt:
+
+npm install -g --unsafe-perm node-red
+3. Run Node-RED
+Once installed, you are ready to run Node-RED.
+
