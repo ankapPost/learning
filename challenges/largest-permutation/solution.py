@@ -6,19 +6,21 @@ import random
 import re
 import sys
 
-# Complete the largestPermutation function below.
 def largestPermutation(k, arr):
     ke = 0
     while ke < k:
         max = arr[0]
         max_index = 0
-        for i in range(ke,len(arr)):
+        max_found = 0
+        for i in range(ke+1,len(arr)):
             if arr[i] > max:
                 max = arr[i]
                 max_index = i
-        swpv = arr[ke]
-        arr[ke] = arr[max_index]
-        arr[max_index] = swpv
+                max_found = 1
+        if max_found == 1:
+            swpv = arr[ke]
+            arr[ke] = arr[max_index]
+            arr[max_index] = swpv
         ke = ke + 1
     return arr
 
