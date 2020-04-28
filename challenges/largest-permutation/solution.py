@@ -9,7 +9,7 @@ import sys
 def largestPermutation(k, arr):
     ke = 0
     while ke < k:
-        max = arr[0]
+        max = arr[ke]
         max_index = 0
         max_found = 0
         for i in range(ke+1,len(arr)):
