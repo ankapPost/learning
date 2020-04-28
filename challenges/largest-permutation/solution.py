@@ -7,22 +7,22 @@ import re
 import sys
 
 def largestPermutation(k, arr):
-    ke = 0
-    while ke < k:
-        max = arr[ke]
-        max_index = ke
+    ki = 0
+    ci = 0
+    while ki < k and ci < len(arr):
+        max = arr[ci]
+        max_index = ci
         max_found = 0
-        for i in range(ke,len(arr)):
+        for i in range(ci+1,len(arr)):
             if arr[i] > max:
                 max = arr[i]
                 max_index = i
                 max_found = 1
         if max_found == 1:
-            arr[max_index] = arr[ke]
-            arr[ke] = max
-            ke = ke + 1
-        else:
-            break
+            arr[max_index] = arr[ci]
+            arr[ci] = max
+            ki = ki + 1
+        ci = ci +1
     return arr
 
 
