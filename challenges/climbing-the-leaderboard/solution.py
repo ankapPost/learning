@@ -5,34 +5,23 @@ import os
 import random
 import re
 import sys
-
-def scoresToRanks(scores):
-    ranks = []
+def insertToScoresAndGetRank(scores,item):
     rank = 0
-    myIter = iter(range(len(scores)))
-    for i in myIter:
+    for i in range(len(scores)):
         if i >= 1 and scores[i] == scores[i-1]:
             pass
         else:
-            rank += 1
-        ranks.append(rank)
-#        print(i,scores[i],rank)
-    return ranks
+            rank = rank + 1
+        if item >= scores[i]:
+            return rank
+    return rank + 1
 
-def insertToScores(scores,item):
-    for i in range(len(scores)):
-        if item > scores[i]:
-            scores.insert(i,item)
-            return i
-    scores.insert(i+1,item)
-    return i+1
-
-# Complete the climbingLeaderboard function below.
 def climbingLeaderboard(scores, alice):
     alice_ranks = []
     for alice_score in alice:
-        index = insertToScores(scores,alice_score)
-        alice_ranks.append(scoresToRanks(scores)[index])
+        rank = insertToScoresAndGetRank(scores,alice_score)
+        alice_ranks.append(rank)
+        print(alice_score, scores, rank)
     return alice_ranks
 
 if __name__ == '__main__':
